@@ -2,6 +2,7 @@ function Adventure()
 {
     Game.call(this);
     Game.game = this;
+    this.npcs = [];
 }
 
 Adventure.prototype = new Game();
@@ -41,6 +42,11 @@ Adventure.prototype.update = function(elapsed)
     else if (this.keys.right)
     {
         this.player.moveRight();
+    }
+    
+    if (this.keys.t)
+    {
+        this.player.checkTalk();
     }
     Game.prototype.update.call(this,elapsed);
 };

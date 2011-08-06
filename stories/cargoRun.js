@@ -9,7 +9,7 @@ Stories.cargoRun = function()
     
     mission.generate = function()
     {
-        w.cargoOwner = Person.create('Cargo owner');    
+        w.cargoOwner = NPC.create('Cargo owner');    
         w.cargoOwner.addTopic('Cargo run', function()
         {
             w.cargoOwner.speak('Hello');

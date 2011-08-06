@@ -15,7 +15,8 @@ Game.prototype.init = function(canvas, overlay, imagePrefix)
         up: false,
         down: false,
         left: false,
-        right: false
+        right: false,
+        t: false,
     };
     this.imageManager = new ImageManager(imagePrefix);
     this.ctx = canvas.getContext('2d');
@@ -38,6 +39,11 @@ Game.prototype.init = function(canvas, overlay, imagePrefix)
             case 40:
                 that.keys.down = true;
                 break;
+            case 84:
+                that.keys.t = true;
+                break;
+            default:
+                Console.debug('Keydown: ' + e.keyCode);
         }
     });
     window.addEventListener('keyup', function(e)
@@ -55,6 +61,9 @@ Game.prototype.init = function(canvas, overlay, imagePrefix)
                 break;
             case 40:
                 that.keys.down = false;
+                break;
+            case 84:
+                that.keys.t = false;
                 break;
         }
     });

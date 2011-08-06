@@ -1,0 +1,15 @@
+#console {
+    height: 100px;
+    overflow-y: hidden;
+}
+
+#console p {
+    font-size: 10px;
+    margin: 0;
+    padding: 1px;
+    font-family: Consolas, 'Courier New', courier, monospace;
+}
+
+#console .debug {
+    color: #fff;
+}
