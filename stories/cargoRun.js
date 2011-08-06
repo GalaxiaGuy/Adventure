@@ -1,4 +1,5 @@
-cargoRun = function()
+Stories = {};
+Stories.cargoRun = function()
 {
     var w = {};
     var mission = { 
@@ -6,13 +7,18 @@ cargoRun = function()
         scenes: []
     };
     
-    mission.generate = function() {
-        w.cargoOwner = new Person('Cargo owner');    
+    mission.generate = function()
+    {
+        w.cargoOwner = Person.create('Cargo owner');    
+        w.cargoOwner.addTopic('Cargo run', function()
+        {
+            w.cargoOwner.speak('Hello');
+        });
     };
     
     var scene = {
         id: 'start',
-        action: function() { w.cargoOwner.speak('Hello'); }
+        action: function() {  }
     };
     
     mission.scenes.push(scene);

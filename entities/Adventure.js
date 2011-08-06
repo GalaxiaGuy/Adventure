@@ -1,36 +1,46 @@
 function Adventure()
 {
     Game.call(this);
+    Game.game = this;
 }
 
 Adventure.prototype = new Game();
 Adventure.prototype.constructor = Adventure;
 
-Adventure.prototype.init = function(canvas)
+Adventure.prototype.init = function(canvas, overlay)
 {
-    Game.prototype.init.call(this, canvas, 'http://dl.dropbox.com/u/1033399/HTML5/Gravitas/Images/');
+    Game.prototype.init.call(this, canvas, overlay, 'http://dl.dropbox.com/u/1033399/HTML5/Gravitas/Images/');
     
     var that = this;
 
     this.start();
+    
+    Stories.cargoRun.generate();
+    Stories.cargoRun.scenes[0].action();    
 };
 
 Adventure.prototype.draw = function(ctx)
 {
-    this.ctx.canvas.width  = window.innerWidth;
-    this.ctx.canvas.height = window.innerHeight;
-  
-    this.ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-    this.ctx.fillStyle = 'rgb(0,127,0)';
-    this.ctx.fillRect (0, 0, ctx.canvas.width, ctx.canvas.height);    
-    this.ctx.save();
-    this.ctx.translate(ctx.canvas.width*0.5, ctx.canvas.height*0.5);
-    
-    this.ctx.restore();
+    Game.prototype.draw.call(this, ctx);
 };
 
 Adventure.prototype.update = function(elapsed)
 {
-    this.testShip.update(elapsed);
+    if (this.keys.up)
+    {
+        this.player.moveUp();
+    }
+    else if (this.keys.down)
+    {
+        this.player.moveDown();
+    }
+    else if (this.keys.left)
+    {
+        this.player.moveLeft();
+    }
+    else if (this.keys.right)
+    {
+        this.player.moveRight();
+    }
     Game.prototype.update.call(this,elapsed);
 };

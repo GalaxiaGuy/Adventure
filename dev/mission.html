@@ -21,18 +21,23 @@
 </head>
 <body>
     <canvas id="game"></canvas>
+    <div id="overlay"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js"></script>    
+    <script src="../common/compatibility.js"></script>
     <script src="../common/ImageManager.js"></script>
     <script src="../common/Game.js"></script>
     <script src="../entities/Adventure.js"></script>
     <script src="../common/Entity.js"></script>
     <script src="../entities/Person.js"></script>
+    <script src="../entities/Player.js"></script>
     <script src="../stories/cargoRun.js"></script>    
     <script>
-        var g = new Adventure();
-        g.init(document.getElementById('game'));
-
-        cargoRun.generate();
-        cargoRun.scenes[0].action();   
+        $(document).ready(function()
+        {
+            var g = new Adventure();
+            g.init(document.getElementById('game'), document.getElementById('overlay'));
+        });
     </script>
 </body>
 </html>
