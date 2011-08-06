@@ -5,4 +5,14 @@ function Player(game)
 }
 
 Player.prototype = new Person();
-Player.prototype.constructor = NPC;
+Player.prototype.constructor = Player;
+
+Player.prototype.checkTalk = function()
+{
+    var length = Game.game.npcs.length;
+    for (var i=0; i<length; i++)
+    {
+        var npc = Game.game.npcs[i];
+        var menu = npc.talkMenu();
+    }
+};

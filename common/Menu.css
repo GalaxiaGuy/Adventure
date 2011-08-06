@@ -5,6 +5,8 @@
     left: 200px;
     margin: 0;
     padding: 0;
+    border-radius: 12px;
+    border: 2px solid black;
 }
 
 .menu ol {
@@ -15,6 +17,8 @@
 .menu li {
     list-style-type: none;
     font-size: 12px;
-    width: 200px;
-    padding: 2px;
+    padding: 4px;
+    width: 100px;
+    border-radius: 8px;
+    background-color: gray;
 }

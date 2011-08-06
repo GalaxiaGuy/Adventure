@@ -2,8 +2,7 @@ function NPC(game)
 {
     Person.call(this, game);
     this.topics = [];
-
-};
+}
 
 NPC.prototype = new Person();
 NPC.prototype.constructor = NPC;
@@ -16,6 +15,16 @@ NPC.prototype.addTopic = function(name, action)
     };
     this.topics.push(topic);
 };
+
+NPC.prototype.talkMenu = function()
+{
+    var menu = new Menu();
+    var length = this.topics.length;
+    for (var i=0; i<length; i++)
+    {
+        menu.addItem(this.topics[i].name, this.topics[i].action );        
+    }
+}
 
 NPC.create = function(name)
 {
